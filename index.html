@@ -40,11 +40,13 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
 <script>
 	var app = angular.module('OtelloApp',[]);
-	var INDEX_VALUE_DEFAULT = -1;
-	var INDEX_VALUE_BLACK = 0;
-	var INDEX_VALUE_WHITE = 1;	
+
+	app.value('INDEX_VALUE_DEFAULT',-1);
+	app.value('INDEX_VALUE_BLACK',0);
+	app.value('INDEX_VALUE_WHITE',1);
 	
-	app.controller('OtelloTableController',function($scope){
+	app.controller('OtelloTableController',function($scope,
+		INDEX_VALUE_WHITE,INDEX_VALUE_BLACK,INDEX_VALUE_DEFAULT){
 	
 		$scope.column = [];
 		$scope.state = INDEX_VALUE_BLACK;
