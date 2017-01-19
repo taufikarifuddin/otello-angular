@@ -1,0 +1,74 @@
+<style>
+	table tr td{
+		cursor:pointer;
+		padding:10px;
+	}
+	
+	table tr td{
+		color:transparent;
+	}
+	
+	table,td{
+		border:1px solid black;
+	}
+	
+	.hitam{
+		background-color:black;
+	}
+	
+	.white{
+		background-color:white;
+	}
+	
+	.lightblue{
+		background-color:lightblue;
+	}
+	
+</style>
+<body ng-app="OtelloApp" ng-controller="OtelloTableController">
+	<div>
+		<input type="text" ng-model="column_input" ng-change ="change(column_input)" />
+	</div>
+	<table>
+		<tr ng-repeat="value in column">
+			<td ng-click="click($index,$parent.$index)" ng-repeat="val in value track by $index" ng-class="val == 0 ? 'hitam' : val == 1 ? 'white' : 'lightblue';">
+				{{ $index+" "+$parent.$index}}
+			</td>
+		</tr>
+	</table>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+<script>
+	var app = angular.module('OtelloApp',[]);
+	var INDEX_VALUE_DEFAULT = -1;
+	var INDEX_VALUE_BLACK = 0;
+	var INDEX_VALUE_WHITE = 1;	
+	
+	app.controller('OtelloTableController',function($scope){
+	
+		$scope.column = [];
+		$scope.state = INDEX_VALUE_BLACK;
+		
+		$scope.change = function(data){
+			$scope.column = new Array(data);
+			for( var i =0; i < data; i++){
+				$scope.column[i] = new Array(data);
+				for( var j =0; j < data; j++){
+					
+					$scope.column[i][j] = INDEX_VALUE_DEFAULT;
+				}				
+			}
+			console.log($scope.column);
+		}
+		
+		$scope.click = function($childIndex,$parentIndex){
+			if( $scope.column[$parentIndex][$childIndex] != INDEX_VALUE_DEFAULT){
+				alert('Kotak Sudah di tandai');
+			}else{
+				$scope.column[$parentIndex][$childIndex] = $scope.state;
+				$scope.state = $scope.state ? INDEX_VALUE_BLACK:INDEX_VALUE_WHITE;
+			}
+		}
+	});	
+	
+</script>
