@@ -1,0 +1,24 @@
+table tr td{
+	cursor:pointer;
+	padding:10px;
+}
+
+table tr td{
+	color:transparent;
+}
+
+table,td{
+	border:1px solid black;
+}
+
+.hitam{
+	background-color:black;
+}
+
+.white{
+	background-color:white;
+}
+
+.lightblue{
+	background-color:lightblue;
+}
