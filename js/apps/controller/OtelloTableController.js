@@ -84,6 +84,8 @@ angular
 		bfs(parentIndex-1,childIndex,6);
 		bfs(parentIndex-1,childIndex+1,7);
 
+		console.log(x + " " + y);
+
 		for(var i=0;i<v.length;i++){
 			console.log(v[i][0] + " " + v[i][1]);
 		}		
@@ -106,7 +108,7 @@ angular
 	        else if(x>v[i][0] && y<v[i][1]){
     			for(var j=x,k=y;j>=v[i][0],k<=v[i][1];j--,k++){
 
-	                    $scope.column[x][k] = $scope.state;
+	                    $scope.column[j][k] = $scope.state;
 
 	            }	
 	        }
@@ -114,14 +116,14 @@ angular
 	        else if(x<v[i][0] && y==v[i][1]){
     			for(var j=x;j<=v[i][0];j++){
 
-	                    $scope.column[x][k] = $scope.state;
+	                    $scope.column[j][y] = $scope.state;
 
 	            }	
 	        }
 	        else if(x>v[i][0] && y==v[i][1]){
     			for(var j=x;j>=v[i][0];j--){
 
-	                    $scope.column[x][k] = $scope.state;
+	                    $scope.column[j][y] = $scope.state;
 
 	            }	
 	        }
@@ -143,7 +145,7 @@ angular
 	        else if(x>v[i][0] && y>v[i][1]){
     			for(var j=x,k=y;j>=v[i][0],k>=v[i][1];j--,k--){
 
-	                    $scope.column[x][k] = $scope.state;
+	                    $scope.column[j][k] = $scope.state;
 
 	            }	
 	        }
