@@ -28,7 +28,7 @@ angular
 				$scope.column[i][j] = INDEX_VALUE_DEFAULT;
 			}				
 		}
-		console.log($scope.column);
+		//console.log($scope.column);
 	}
 	
 	$scope.click = function(childIndex , parentIndex){
@@ -39,7 +39,7 @@ angular
 			
 			
 		}
-		console.log("sekarang di state " + $scope.state);
+		//console.log("sekarang di state " + $scope.state);
 		$scope.update(parentIndex, childIndex);
 		$scope.state = $scope.state ? INDEX_VALUE_BLACK:INDEX_VALUE_WHITE;
 
@@ -58,17 +58,14 @@ angular
 
 		}else{
 			console.log("arah ke " + direction);
-			if(direction==0) bfs(parentIndex,childIndex+1,$scope.state,0);
-			else if(direction==1) bfs(parentIndex+1,childIndex+1,$scope.state,1);
-			else if(direction==2) bfs(parentIndex+1,childIndex,$scope.state,2);
-			else if(direction==3) bfs(parentIndex+1,childIndex-1,$scope.state,3);
-			else if(direction==4){
-				bfs(parentIndex,childIndex-1,$scope.state,4);
-				console.log("jalan kiri");
-			}
-			else if(direction==5) bfs(parentIndex-1,childIndex-1,$scope.state,5);
-			else if(direction==6) bfs(parentIndex-1,childIndex,$scope.state,6);
-			else if(direction==7) bfs(parentIndex-1,childIndex+1,$scope.state,7);
+			if(direction==0) bfs(parentIndex,childIndex+1,0);
+			else if(direction==1) bfs(parentIndex+1,childIndex+1,1);
+			else if(direction==2) bfs(parentIndex+1,childIndex,2);
+			else if(direction==3) bfs(parentIndex+1,childIndex-1,3);
+			else if(direction==4) bfs(parentIndex,childIndex-1,4);
+			else if(direction==5) bfs(parentIndex-1,childIndex-1,5);
+			else if(direction==6) bfs(parentIndex-1,childIndex,6);
+			else if(direction==7) bfs(parentIndex-1,childIndex+1,7);
 		}
 	}
 
@@ -84,7 +81,7 @@ angular
 		bfs(parentIndex-1,childIndex,6);
 		bfs(parentIndex-1,childIndex+1,7);
 
-		console.log(x + " " + y);
+		//console.log(x + " " + y);
 
 		for(var i=0;i<v.length;i++){
 			console.log(v[i][0] + " " + v[i][1]);
